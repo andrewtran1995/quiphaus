@@ -2,18 +2,20 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
-	"github.com/jmoiron/sqlx"
-	"github.com/lib/pq"
-)
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, handling this request at %s!", r.URL.Path[1:])
-}
+	// "github.com/jmoiron/sqlx"
+	// "github.com/lib/pq"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	fmt.Printf("hello, world\n")
-	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	r := gin.Default()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+		})
+	})
+	r.Run()
 }
