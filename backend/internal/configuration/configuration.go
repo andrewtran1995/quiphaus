@@ -9,16 +9,18 @@ import (
 
 // Configuration -- Structure that contains mainly database configuration details.
 type Configuration struct {
-	Port     string `yaml:"Port"`
-	Postgres struct {
-		URL      string `yaml:"url"`
-		Dbname   string `yaml:"dbname"`
-		Username string `yaml:"username"`
-		Password string `yaml:"password"`
-	}
+	Port     string                `yaml:"Port"`
+	Postgres postgresConfiguration `yaml:"Postgres"`
 }
 
-const configurationFilename = "configuration.yaml"
+type postgresConfiguration struct {
+	URL      string `yaml:"url"`
+	Dbname   string `yaml:"dbname"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
+}
+
+const configurationFilename = "internal/configuration/configuration.yaml"
 
 // New -- Construct a new Configuration instance and returns it.
 func New() *Configuration {
@@ -28,7 +30,7 @@ func New() *Configuration {
 		log.Fatal(err)
 	}
 
-	err = yaml.Unmarshal(configurationFile, configuration)
+	err = yaml.Unmarshal(configurationFile, &configuration)
 	if err != nil {
 		log.Fatal(err)
 	}
