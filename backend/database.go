@@ -13,14 +13,14 @@ import (
 )
 
 var db *sqlx.DB
+var config *configuration.Configuration
 
 func init() {
+	config = configuration.New()
 	// Open a db connection
 	var err error
-	config := configuration.New()
-	fmt.Printf("The configuration is: \n")
-	fmt.Printf("%+v\n", config)
-	db, err = sqlx.Open("postgres", ":memory:")
+	dsn := fmt.Sprintf("%v:%v@tcp(%v)/%v", config.Postgres.Username, config.Postgres.Password, config.Postgres.URL, config.Postgres.Dbname)
+	db, err = sqlx.Open("postgres", dsn)
 	if err != nil {
 		panic("failed to connect database")
 	}
