@@ -2,20 +2,34 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
-	// "github.com/jmoiron/sqlx"
-	// "github.com/lib/pq"
 	"github.com/gin-gonic/gin"
+	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
+
+var db *sqlx.DB
+
+func init() {
+	// Open a db connection
+	var err error
+	db, err = sqlx.Open("postgres", ":memory:")
+	if err != nil {
+		panic("failed to connect database")
+	}
+	err = db.Ping()
+	log.Print(err)
+}
 
 func main() {
 	fmt.Printf("hello, world\n")
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
+	router := gin.Default()
+	router.GET("/ping", func(c *gin.Context) {
+		c.IndentedJSON(http.StatusOK, gin.H{
 			"message": "pong",
 		})
 	})
-	r.Run()
+	router.Run()
 }
