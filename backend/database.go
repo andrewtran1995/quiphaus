@@ -19,7 +19,7 @@ func init() {
 	config = configuration.New()
 	// Open a db connection
 	var err error
-	dsn := fmt.Sprintf("%v:%v@tcp(%v)/%v", config.Postgres.Username, config.Postgres.Password, config.Postgres.URL, config.Postgres.Dbname)
+	dsn := fmt.Sprintf("username=%v password=%v url=%v dbname=%v sslmode=disable", config.Postgres.Username, config.Postgres.Password, config.Postgres.URL, config.Postgres.Dbname)
 	db, err = sqlx.Open("postgres", dsn)
 	if err != nil {
 		panic("failed to connect database")
