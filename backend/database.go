@@ -31,7 +31,8 @@ func init() {
 }
 
 func main() {
-	fmt.Printf("hello, world\n")
+	defer db.Close()
+	log.Print("hello, world -- the database is now open for business\n")
 	router := gin.Default()
 	router.GET("/ping", func(c *gin.Context) {
 		c.IndentedJSON(http.StatusOK, gin.H{
