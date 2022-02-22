@@ -1,0 +1,1 @@
+<input class="bg-green-200 m-6 rounded-lg transition-colors">

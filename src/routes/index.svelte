@@ -1,3 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<p class="text-3xl font-bold underline">Hey there! Will this hot-reload??</p>
+<script>
+  import Quote from '../components/Quote.svelte'
+  import QuoteInput from '../components/QuoteInput.svelte'
+  import Quotes from '../components/Quotes.svelte'
+</script>
+
+<div class="flex flex-col font-serif font-medium m-6 place-items-center">
+    <h1 class="text-2xl">quiphaus</h1>
+</div>
+<Quotes>
+    <Quote/>
+    <Quote/>
+</Quotes>
+<QuoteInput/>
