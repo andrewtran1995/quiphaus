@@ -1,6 +1,7 @@
 {
   "name": "quiphaus",
   "version": "0.0.1",
+  "license": "ISC",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
