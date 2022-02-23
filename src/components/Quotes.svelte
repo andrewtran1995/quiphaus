@@ -1,6 +1,6 @@
 <script>
   /* eslint import/first: "off" */
-  import { quoteStore } from './store.js'
+  import { quoteStore } from './store.ts'
   import Quote from './Quote.svelte'
 </script>
 

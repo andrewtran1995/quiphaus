@@ -12,7 +12,7 @@
     })
 </script>
 
-<div class="flex justify-center">
+<form class="flex justify-center" on:submit|preventDefault={addQuote}>
     <input class="bg-green-200 m-6 p-2 rounded-lg transition-colors" bind:value={quoteInput} required>
-    <button on:click={addQuote}>Add quote</button>
-</div>
+    <button>Add quote</button>
+</form>
