@@ -1,14 +1,12 @@
 <script>
-  import { quoteStore } from './store.ts'
+  /* eslint import/first: "off" */
+  import { quoteStore } from './store.js'
   import Quote from './Quote.svelte'
-
-  let quoteInstances = []
-  quoteStore.subscribe((value) => { quoteInstances = value })
 </script>
 
 <div class="flex flex-col place-items-center space-y-2">
     <slot/>
-    {#each quoteInstances as quote}
+    {#each $quoteStore as quote}
         <Quote quote={quote}/>
     {/each}
 </div>
