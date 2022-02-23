@@ -1,0 +1,7 @@
+root = true
+
+[*.{svelte,ts}]
+ij_typescript_indent_size = 2
+ij_typescript_spaces_within_imports = true
+ij_typescript_tab_width = 2
+tab_width = 2

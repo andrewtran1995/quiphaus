@@ -1,6 +1,11 @@
 module.exports = {
   extends: ['standard'],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    extraFileExtensions: ['.svelte'],
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
+  },
   plugins: [
     'svelte3',
     '@typescript-eslint',
