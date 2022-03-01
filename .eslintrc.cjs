@@ -1,11 +1,15 @@
 module.exports = {
-  extends: ['standard'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     extraFileExtensions: ['.svelte'],
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
+  extends: [
+    'standard',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  ],
   plugins: [
     'svelte3',
     '@typescript-eslint',
@@ -13,6 +17,13 @@ module.exports = {
   overrides: [
     {
       files: ['*.svelte'],
+      // https://github.com/sveltejs/eslint-plugin-svelte3/issues/81
+      rules: {
+        'import/first': ['off'],
+        'import/no-duplicates': ['off'],
+        'import/no-mutable-exports': ['off'],
+        'import/prefer-default-export': ['off'],
+      },
       processor: 'svelte3/svelte3',
     },
   ],
@@ -21,5 +32,5 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 2, maxEOF: 0 }],
   },
   settings: {
-    'svelte3/typescript': true,
+    'svelte3/typescript': () => require('typescript'),
   }}

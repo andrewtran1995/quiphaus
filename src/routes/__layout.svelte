@@ -3,6 +3,6 @@
   import { dev } from '$app/env'
 </script>
 
-<div class="bg-gray-100 h-screen {dev && 'debug-screens'}">
-    <slot/>
+<div class="h-screen bg-gray-100 {dev ? 'debug-screens' : ''}">
+  <slot />
 </div>

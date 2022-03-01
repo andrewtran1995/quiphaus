@@ -1,15 +1,15 @@
 {
   "name": "quiphaus",
+  "description": "Web app to store memorable quotes.",
   "version": "0.0.1",
-  "license": "ISC",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "prepare": "husky install"
+  "author": "andrewtran1995",
+  "bugs": {
+    "email": "a@a",
+    "url": "https://github.com/andrewtran1995/quiphaus/issues"
+  },
+  "dependencies": {
+    "dexie": "^3.2.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^1.0.0-next.44",
@@ -19,14 +19,19 @@
     "@typescript-eslint/parser": "^5.12.0",
     "autoprefixer": "^10.4.2",
     "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-svelte3": "^3.4.0",
+    "fixpack": "^4.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
     "postcss": "^8.4.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.7",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.10.1",
@@ -35,18 +40,36 @@
     "tslib": "^2.3.1",
     "typescript": "~4.5.4"
   },
+  "homepage": "https://github.com/andrewtran1995/quiphaus",
+  "keywords": [
+    "svelte3"
+  ],
+  "license": "ISC",
   "lint-staged": {
-    "*.ts": "eslint --cache --fix",
-    "*.svelte": "eslint --cache --fix"
+    "*.ts": [
+      "prettier -w",
+      "eslint --cache --fix"
+    ],
+    "*.svelte": [
+      "prettier -w",
+      "eslint --cache --fix"
+    ]
   },
-  "type": "module",
+  "main": "./src/app.html",
   "peerDependencies": {
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0"
   },
-  "dependencies": {
-    "dexie": "^3.2.1",
-    "uuid": "^8.3.2"
-  }
+  "repository": "https://github.com/andrewtran1995/quiphaus",
+  "scripts": {
+    "build": "svelte-kit build",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "dev": "svelte-kit dev --open",
+    "package": "svelte-kit package",
+    "prepare": "husky install",
+    "preview": "svelte-kit preview"
+  },
+  "type": "module"
 }

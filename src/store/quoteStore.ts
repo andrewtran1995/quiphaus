@@ -2,12 +2,13 @@ import { writable } from 'svelte/store'
 import { v4 } from 'uuid'
 import { db, type TQuoteRow } from './db'
 
-export type TQuote = TQuoteRow;
+export type TQuote = TQuoteRow
 
 export const quoteStore = (() => {
   const store = writable<TQuote[]>([])
 
-  const refreshFromDb = async () => store.set(await db.quotes.orderBy('createdAt').reverse().toArray())
+  const refreshFromDb = async () =>
+    store.set(await db.quotes.orderBy('createdAt').reverse().toArray())
 
   return {
     ...store,
