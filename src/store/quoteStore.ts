@@ -23,7 +23,7 @@ export const quoteStore = (() => {
       await db.quotes.delete(id)
       await refreshFromDb()
     },
-    async removeAllQuotes () {
+    async removeAllQuotes (this: void) {
       await db.quotes.clear()
       store.set([])
     }

@@ -23,6 +23,7 @@ module.exports = {
         'import/no-duplicates': ['off'],
         'import/no-mutable-exports': ['off'],
         'import/prefer-default-export': ['off'],
+        'no-use-before-define': ['off'],
       },
       processor: 'svelte3/svelte3',
     },

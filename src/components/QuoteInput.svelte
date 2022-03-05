@@ -1,5 +1,6 @@
 <script>
   import { quoteStore } from '../store/quoteStore'
+  import Button from './Button.svelte'
 
   let quoteInput = ''
   const addQuote = async () => {
@@ -8,7 +9,15 @@
   }
 </script>
 
-<form class="flex justify-center justify-between md:flex-row flex-col space-y-2 md:space-y-0 !mb-4 w-full" on:submit|preventDefault={addQuote}>
-    <input class="bg-green-200 focus:outline-none focus:border-2 focus:border-emerald-600 flex-grow md:mr-4 p-2 rounded-lg transition-colors" bind:value={quoteInput} placeholder="Enter a quote" required>
-    <button class="border-2 border-emerald-600 p-2 hover:bg-emerald-600 hover:text-white rounded-lg transition-colors">Add quote</button>
+<form
+  class="!mb-4 flex w-full flex-col justify-center justify-between space-y-2 md:flex-row md:space-y-0"
+  on:submit|preventDefault={addQuote}
+>
+  <input
+    class="flex-grow rounded-lg border-2 border-transparent bg-green-200 p-2 transition-colors focus:border-emerald-600 focus:outline-none md:mr-4"
+    bind:value={quoteInput}
+    placeholder="Enter a quote"
+    required
+  />
+  <Button>Add quote</Button>
 </form>
