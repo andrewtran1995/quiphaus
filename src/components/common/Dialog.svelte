@@ -7,15 +7,17 @@
 </script>
 
 <Overlay bind:open>
-  <div class="px-4">
+  <div class="flex justify-center px-4">
     <div class="flex max-w-2xl flex-col rounded-lg bg-white p-4 shadow">
       <slot />
-      <Button
-        color="green"
-        on:click={() => {
-          open = !open
-        }}>{buttonText}</Button
-      >
+      <div class="mt-4 flex justify-end">
+        <Button
+          color="green"
+          on:click={() => {
+            open = !open
+          }}>{buttonText}</Button
+        >
+      </div>
     </div>
   </div>
 </Overlay>

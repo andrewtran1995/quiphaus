@@ -5,19 +5,23 @@
   import Quotes from '../components/Quotes.svelte'
   import { quoteStore } from '../store/quoteStore'
   import DeleteAllQuotes from '../components/DeleteAllQuotes.svelte'
-  import Button from '../components/Button.svelte'
   import InfoDialog from '../components/InfoDialog.svelte'
+  import IconButton from '../components/common/IconButton.svelte'
+  import QuestionIcon from '../components/common/QuestionIcon.svelte'
 
   let open = false
 </script>
 
-<div class="flex flex-col place-items-center p-6 font-serif font-medium">
+<div
+  class="flex flex-row place-items-center justify-center p-6 font-serif font-medium"
+>
   <h1 class="text-2xl">quiphaus</h1>
-  <Button
+  <IconButton
+    icon={QuestionIcon}
     on:click={() => {
       open = true
-    }}>What's this?</Button
-  >
+    }}
+  />
 </div>
 <Feed>
   <QuoteInput />

@@ -1,6 +1,6 @@
 <script>
   import { quoteStore } from '../store/quoteStore'
-  import Button from './Button.svelte'
+  import Button from './common/Button.svelte'
 
   let quoteInput = ''
   const addQuote = async () => {
