@@ -11,7 +11,7 @@
     ? 'hover:bg-emerald-600'
     : 'hover:bg-rose-500'} {color === 'green'
     ? 'focus:bg-emerald-600'
-    : 'focus:bg-rose-500'} {full ? 'w-full' : 'w-fit'} focus:outline-none"
+    : 'focus:bg-rose-500'} {full ? 'w-full' : ''} focus:outline-none"
   on:click
 >
   <slot />

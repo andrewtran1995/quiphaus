@@ -1,0 +1,13 @@
+{
+  "description": "Save memorable quotes.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "quiphaus",
+  "short_name": "quiphaus",
+  "start_url": "/"
+}
