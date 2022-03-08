@@ -5,7 +5,7 @@
 </script>
 
 <div
-  class="quote-container w-full min-w-fit max-w-full rounded-xl p-6 shadow-md transition-colors"
+  class="quote-container w-full min-w-fit max-w-full rounded-xl p-6 shadow-md transition-colors dark:bg-gray-700"
   tabindex="0"
 >
   <h3 class="text-lg">{quote.quote}</h3>

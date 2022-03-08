@@ -9,5 +9,6 @@
   ],
   "name": "quiphaus",
   "short_name": "quiphaus",
-  "start_url": "/"
+  "start_url": "/",
+  "theme_color": "gray"
 }

@@ -8,7 +8,9 @@
 
 <Overlay bind:open>
   <div class="flex justify-center px-4">
-    <div class="flex max-w-2xl flex-col rounded-lg bg-white p-4 shadow">
+    <div
+      class="flex max-w-2xl flex-col rounded-lg bg-gray-100 p-4 shadow dark:bg-gray-800"
+    >
       <slot />
       <div class="mt-4 flex justify-end">
         <Button
