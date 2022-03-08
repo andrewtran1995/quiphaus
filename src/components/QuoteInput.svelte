@@ -14,7 +14,7 @@
   on:submit|preventDefault={addQuote}
 >
   <input
-    class="flex-grow rounded-lg border-2 border-transparent bg-green-200 p-2 transition-colors focus:border-emerald-600 focus:outline-none md:mr-4"
+    class="flex-grow rounded-lg border-2 border-transparent bg-green-200 p-2 text-gray-900 transition-colors focus:border-emerald-600 focus:outline-none md:mr-4"
     bind:value={quoteInput}
     placeholder="Enter a quote"
     required
