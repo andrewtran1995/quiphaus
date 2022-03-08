@@ -5,24 +5,10 @@
   import Quotes from '../components/Quotes.svelte'
   import { quoteStore } from '../store/quoteStore'
   import DeleteAllQuotes from '../components/DeleteAllQuotes.svelte'
-  import InfoDialog from '../components/InfoDialog.svelte'
-  import IconButton from '../components/common/IconButton.svelte'
-  import QuestionIcon from '../components/common/QuestionIcon.svelte'
-
-  let open = false
+  import Navbar from '../components/Navbar.svelte'
 </script>
 
-<div
-  class="flex flex-row place-items-center justify-center p-6 font-serif font-medium"
->
-  <h1 class="text-2xl">quiphaus</h1>
-  <IconButton
-    icon={QuestionIcon}
-    on:click={() => {
-      open = true
-    }}
-  />
-</div>
+<Navbar />
 <Feed>
   <QuoteInput />
   {#await quoteStore.init()}
@@ -36,4 +22,3 @@
     <p>Something went wrong: {error.message}</p>
   {/await}
 </Feed>
-<InfoDialog bind:open />
