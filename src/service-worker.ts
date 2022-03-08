@@ -51,7 +51,6 @@ async function fetchAndCache (request: Request) {
 }
 
 self.addEventListener('fetch', (event) => {
-  console.log('[ServiceWorker] fetch', event)
   event.respondWith(
     (async () =>
       (await caches.match(event.request)) ??

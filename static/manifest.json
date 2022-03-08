@@ -1,6 +1,6 @@
 {
   "description": "Save memorable quotes.",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "favicon.png",
