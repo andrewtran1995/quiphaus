@@ -5,10 +5,10 @@
 </script>
 
 <div
-  class="quote-container w-full min-w-fit max-w-full rounded-xl p-6 shadow-md transition-colors dark:bg-gray-700"
+  class="quote-container w-full rounded-xl p-6 shadow-md transition-colors dark:bg-gray-700"
   tabindex="0"
 >
-  <h3 class="text-lg">{quote.quote}</h3>
+  <h3 class="truncate text-lg">{quote.quote}</h3>
   <div class="flex justify-between text-sm">
     <p>John Doe</p>
     <p>{quote.createdAt.toLocaleDateString()}</p>
