@@ -8,6 +8,7 @@
     "url": "https://github.com/andrewtran1995/quiphaus/issues"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.20.1",
     "dexie": "^3.2.1",
     "uuid": "^8.3.2"
   },
@@ -66,7 +67,7 @@
     "build": "svelte-kit build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "dev": "svelte-kit dev --open",
+    "dev": "svelte-kit dev -o --https",
     "package": "svelte-kit package",
     "prepare": "husky install",
     "preview": "svelte-kit preview"

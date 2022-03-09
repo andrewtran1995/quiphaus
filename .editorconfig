@@ -1,6 +1,9 @@
 root = true
 
 [*.{svelte,ts}]
+ij_html_indent_size = 2
+ij_html_tab_width = 2
+
 ij_javascript_indent_size = 2
 ij_javascript_spaces_within_imports = true
 ij_javascript_tab_width = 2

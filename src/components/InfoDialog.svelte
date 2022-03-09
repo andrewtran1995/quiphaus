@@ -2,6 +2,7 @@
   import Dialog from './common/Dialog.svelte'
   import Header from './common/Header.svelte'
   import { onMount } from 'svelte'
+  import { isAuthenticated, user } from '../store/user'
 
   export let open = false
 
@@ -22,6 +23,8 @@
     <div>
       <Header>App information</Header>
       <ul class="list-inside list-disc">
+        <li><b>Logged in</b> - {$isAuthenticated ? 'yes' : 'no'}</li>
+        <li><b>Current user</b> - {$user?.email ?? 'none'}</li>
         <li><b>Dark mode</b> - {isDarkMode ? 'enabled' : 'disabled'}</li>
       </ul>
     </div>

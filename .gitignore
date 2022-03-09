@@ -1,4 +1,5 @@
 .DS_Store
+.env
 .eslintcache
 .idea
 .vercel_build_output
