@@ -16,9 +16,19 @@
   <div class="space-y-4">
     <div>
       <Header>About quiphaus</Header>
-      <i>quiphaus</i> is a page that stores memorable quotes (e.g., from friends)
-      locally to your browser. Quotes are not saved across devices, and wiping browser
-      data will delete your quotes.
+      <div class="space-y-2">
+        <div>
+          <i>quiphaus</i> is a single-page app that stores memorable quotes from
+          friends locally to your browser. Quotes are not saved across devices, and
+          wiping browser data will delete your quotes.
+        </div>
+        <div>
+          Simple sign-ons (managed via <a
+            class="underline"
+            href="https://auth0.com/">Auth0</a
+          >) will allow for cross-device, persisted quotes in the future.
+        </div>
+      </div>
     </div>
     <div>
       <Header>App information</Header>

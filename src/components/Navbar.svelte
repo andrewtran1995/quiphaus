@@ -23,7 +23,7 @@
       }}
     />
   </div>
-  <h1 class="grow-0 cursor-default font-serif text-2xl font-medium">
+  <h1 class="grow-0 cursor-default font-serif text-3xl font-medium">
     quiphaus
   </h1>
   <div class="grow text-right">
