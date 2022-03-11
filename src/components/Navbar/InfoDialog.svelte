@@ -1,8 +1,8 @@
 <script>
-  import Dialog from './common/Dialog.svelte'
-  import Header from './common/Header.svelte'
+  import Dialog from '../common/Dialog.svelte'
+  import Header from '../common/Header.svelte'
   import { onMount } from 'svelte'
-  import { isAuthenticated, user } from '../store/user'
+  import { isAuthenticated, user } from '../../store/user'
 
   export let open = false
 

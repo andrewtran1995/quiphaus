@@ -4,7 +4,7 @@
   import Quotes from '../components/Quotes.svelte'
   import { quoteStore } from '../store/quoteStore'
   import DeleteAllQuotes from '../components/DeleteAllQuotes.svelte'
-  import Navbar from '../components/Navbar.svelte'
+  import Navbar from '../components/Navbar/Navbar.svelte'
   import { auth0 } from '../auth/auth'
   import { onMount } from 'svelte'
   import { isAuthenticated, user } from '../store/user'

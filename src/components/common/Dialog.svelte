@@ -17,11 +17,13 @@
 <svelte:window on:keydown={handleEscape} />
 
 <Overlay bind:open>
-  <div class="flex justify-center px-4">
+  <div class="flex h-full justify-center px-4">
     <div
-      class="flex w-full max-w-xl flex-col rounded-lg bg-gray-100 p-4 shadow dark:bg-gray-800"
+      class="flex h-full w-full max-w-full flex-col justify-between rounded-lg bg-gray-100 p-4 shadow dark:bg-gray-800 md:h-fit md:max-w-[512px]"
     >
-      <slot />
+      <div>
+        <slot />
+      </div>
       <div class="mt-4 flex justify-end">
         <Button
           color="green"
