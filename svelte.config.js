@@ -12,7 +12,7 @@ const config = {
     vite: {
       build: {
         target: 'esnext',
-      }
+      },
     }
   },
 }

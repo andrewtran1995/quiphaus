@@ -27,6 +27,12 @@ module.exports = {
       },
       processor: 'svelte3/svelte3',
     },
+    {
+      files: ['api/*'],
+      parserOptions: {
+        project: ['api/tsconfig.json']
+      }
+    },
   ],
   rules: {
     // https://github.com/sveltejs/eslint-plugin-svelte3/issues/41

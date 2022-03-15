@@ -9,7 +9,7 @@
   let settingsOpen = false
 </script>
 
-<div class="flex flex-row place-items-center justify-center p-6">
+<header class="flex flex-row place-items-center justify-center p-6">
   <div class="grow">
     <IconButton
       icon={SettingsIcon}
@@ -29,6 +29,6 @@
       }}
     />
   </div>
-</div>
+</header>
 <Settings bind:open={settingsOpen} />
 <InfoDialog bind:open={infoOpen} />
