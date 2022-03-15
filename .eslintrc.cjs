@@ -37,6 +37,8 @@ module.exports = {
   rules: {
     // https://github.com/sveltejs/eslint-plugin-svelte3/issues/41
     'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 2, maxEOF: 0 }],
+    'no-useless-constructor': ['off'],
+    '@typescript-eslint/no-useless-constructor': ['error']
   },
   settings: {
     'svelte3/typescript': () => require('typescript'),

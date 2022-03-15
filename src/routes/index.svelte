@@ -5,14 +5,14 @@
   import { quoteStore } from '../store/quoteStore'
   import DeleteAllQuotes from '../components/DeleteAllQuotes.svelte'
   import Navbar from '../components/Navbar/Navbar.svelte'
-  import { auth0 } from '../auth/auth'
+  import { authClient } from '../auth/auth'
   import { onMount } from 'svelte'
   import { isAuthenticated, user } from '../store/user'
   import Body from '../components/Body.svelte'
 
   onMount(async () => {
-    isAuthenticated.set(await auth0.isAuthenticated())
-    user.set(await auth0.getUser())
+    isAuthenticated.set(await authClient.isAuthenticated())
+    user.set(await authClient.getUser())
   })
 </script>
 

@@ -8,13 +8,15 @@ export const quoteStore = (() => {
   const store = writable<TQuote[]>([])
 
   const refreshFromDb = async () =>
-    store.set(await db.quotes.orderBy('createdAt').reverse().toArray())
+    store.set(await db.quotes.orderBy('date').reverse().toArray())
 
   return {
     ...store,
-    async addQuote (quote: Omit<TQuoteRow, 'id' | 'createdAt'>) {
-      await db.quotes.add({ id: v4(), createdAt: new Date(), ...quote })
+    async addQuote (quote: Omit<TQuoteRow, 'id'>) {
+      const row = { id: v4(), ...quote }
+      await db.quotes.add(row)
       await refreshFromDb()
+      return row
     },
     async init () {
       await refreshFromDb()

@@ -3,7 +3,7 @@
   import Header from '../common/Header.svelte'
   import { isAuthenticated, user } from '../../store/user'
   import Button from '../common/Button.svelte'
-  import { auth0 } from '../../auth/auth'
+  import { authClient } from '../../auth/auth'
   import { BASE_URL } from '../../lib/url'
 
   export let open = false
@@ -15,7 +15,7 @@
     {#if $isAuthenticated}
       <Button
         on:click={async () => {
-          await auth0.logout({ returnTo: BASE_URL })
+          await authClient.logout({ returnTo: BASE_URL })
           isAuthenticated.set(false)
           user.set(null)
         }}
@@ -26,10 +26,10 @@
       <Button
         on:click={async () => {
           try {
-            await auth0.loginWithPopup()
-            console.log({ user: await auth0.getUser() })
-            isAuthenticated.set(await auth0.isAuthenticated())
-            user.set(await auth0.getUser())
+            await authClient.loginWithPopup()
+            console.log({ user: await authClient.getUser() })
+            isAuthenticated.set(await authClient.isAuthenticated())
+            user.set(await authClient.getUser())
           } catch (e) {
             console.error(e)
           }

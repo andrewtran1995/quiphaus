@@ -1,10 +1,17 @@
-<script>
-  import { quoteStore } from '../store/quoteStore'
+<script lang="ts">
   import Button from './common/Button.svelte'
+  import { QuoteToSave } from '../store/quote'
 
   let quoteInput = ''
   const addQuote = async () => {
-    await quoteStore.addQuote({ quote: quoteInput, quotee: 'John Doe' })
+    const newQuote = new QuoteToSave({
+      date: new Date(),
+      quote: quoteInput,
+      quotee: 'John Doe'
+    })
+
+    await newQuote.save()
+
     quoteInput = ''
   }
 </script>

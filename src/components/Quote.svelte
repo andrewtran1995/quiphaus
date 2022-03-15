@@ -1,5 +1,4 @@
 <script lang="ts">
-  /* eslint no-use-before-define: "off" */
   import type { TQuote } from '../store/quoteStore'
   export let quote: TQuote
 </script>
@@ -11,7 +10,7 @@
   <h3 class="truncate text-lg">{quote.quote}</h3>
   <div class="flex justify-between text-sm">
     <p>John Doe</p>
-    <p>{quote.createdAt.toLocaleDateString()}</p>
+    <p>{quote.date.toLocaleDateString()}</p>
   </div>
 </div>
 
