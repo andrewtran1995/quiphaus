@@ -20,7 +20,7 @@ export type TQuoteRow = {
 export const db = new Dexie('QuiphausDatabase') as Dexie & {
   quotes: Table<TQuoteRow>
 }
-db.version(1).stores({
+db.version(2).stores({
   quotes: 'id,date,quote,quotee,userId'
 })
 db.on('populate', async () => {
