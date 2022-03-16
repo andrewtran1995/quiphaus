@@ -4,7 +4,6 @@ import { authClient } from '../auth/auth'
 import { apiClient } from '../lib/api'
 import type { TQuoteRow } from './db'
 import type { TQuoteDocApiInput } from '../../api/_storeTypes'
-import { isAuthenticated } from './user'
 
 export class QuoteToSave {
   constructor (

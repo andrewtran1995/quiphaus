@@ -3,4 +3,5 @@
 
 npx fixpack
 npm run check
+npm run build:api
 npx lint-staged
