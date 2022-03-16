@@ -21,13 +21,13 @@ const handler = createHandler(async (req, res, userId) => {
       break
     }
     case 'POST': {
-      const { quoteText } = req.body as Record<string, unknown>
-      if (!quoteText || typeof quoteText !== 'string') {
+      const { date, quote, quotee } = req.body as Record<string, unknown>
+      if (!quote || typeof quote !== 'string') {
         res.status(400).send("'quoteText' required")
         return
       }
-      const quote = await storeClient(userId).addQuote(quoteText)
-      res.status(200).json(quote)
+      const savedQuote = await storeClient(userId).addQuote(quote)
+      res.status(200).json(savedQuote)
       break
     }
   }

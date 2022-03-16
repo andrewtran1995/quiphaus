@@ -11,6 +11,7 @@
   <div class="flex justify-between text-sm">
     <p>John Doe</p>
     <p>{quote.date.toLocaleDateString()}</p>
+    <p>{quote.userId ? 'synced' : 'local'}</p>
   </div>
 </div>
 

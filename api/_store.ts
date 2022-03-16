@@ -1,5 +1,6 @@
 import { Client, ExprArg, query as q, values } from 'faunadb'
-import { TQuoteDoc, TQuoteDocData } from './_storeTypes'
+import { SetRequired } from 'type-fest'
+import { TQuoteDoc, TQuoteDocApiInput, TQuoteDocData } from './_storeTypes'
 
 export function storeClient (userId: string) {
   const client = new Client({
@@ -10,13 +11,16 @@ export function storeClient (userId: string) {
 
   return {
     ...client,
-    async addQuote (quoteText: string): Promise<TQuoteDoc> {
+    async addQuote (
+      input: Pick<TQuoteDocApiInput, 'quote'> &
+        Omit<Partial<TQuoteDocApiInput>, 'quote'>
+    ): Promise<TQuoteDoc> {
       const res = await client.query<values.Document<TQuoteDocData>>(
         q.Create(quotesRef, {
           data: <TQuoteDocData>{
-            date: new Date().toISOString(),
-            quote: quoteText,
-            quotee: 'John Doe',
+            date: input.date ?? new Date().toISOString(),
+            quote: input.quote,
+            quotee: input.quotee ?? 'John Doe',
             userId
           }
         })

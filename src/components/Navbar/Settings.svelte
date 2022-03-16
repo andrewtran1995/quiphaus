@@ -5,6 +5,7 @@
   import Button from '../common/Button.svelte'
   import { authClient } from '../../auth/auth'
   import { BASE_URL } from '../../lib/url'
+  import { quoteStore } from '../../store/quoteStore'
 
   export let open = false
 </script>
@@ -27,9 +28,9 @@
         on:click={async () => {
           try {
             await authClient.loginWithPopup()
-            console.log({ user: await authClient.getUser() })
             isAuthenticated.set(await authClient.isAuthenticated())
             user.set(await authClient.getUser())
+            open = false
           } catch (e) {
             console.error(e)
           }
@@ -38,5 +39,16 @@
         Login
       </Button>
     {/if}
+    <Button
+      on:click={async () => {
+        await quoteStore.removeAllQuotes()
+        const token = await authClient.getTokenSilently()
+        if (token) {
+          await authClient.logout({ returnTo: BASE_URL })
+        }
+      }}
+    >
+      Clear all app data
+    </Button>
   </div>
 </Dialog>

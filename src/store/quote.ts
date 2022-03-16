@@ -4,6 +4,7 @@ import { authClient } from '../auth/auth'
 import { apiClient } from '../lib/api'
 import type { TQuoteRow } from './db'
 import type { TQuoteDocApiInput } from '../../api/_storeTypes'
+import { isAuthenticated } from './user'
 
 export class QuoteToSave {
   constructor (
@@ -28,13 +29,13 @@ export class QuoteToSave {
   }
 
   private async saveRemote (): Promise<TQuoteRow | undefined> {
-    const token = await authClient.getTokenSilently()
-    if (!token) {
+    const isAuthenticated = await authClient.isAuthenticated()
+    if (!isAuthenticated) {
       console.log('cannot save remotely, token is missing')
       return undefined
     }
 
-    return apiClient(token).addQuote({
+    return apiClient(await authClient.getTokenSilently()).addQuote({
       ...this.quote,
       date: this.quote.date.toISOString()
     })
