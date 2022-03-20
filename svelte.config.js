@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-vercel'
 import preprocess from 'svelte-preprocess'
+import viteCompression from 'vite-plugin-compression'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,6 +14,12 @@ const config = {
       build: {
         target: 'esnext',
       },
+      plugins: [
+        viteCompression({
+          algorithm: 'brotliCompress',
+          filter: /\.(css|js|json|ttf)$/,
+        })
+      ]
     }
   },
 }
